@@ -1,0 +1,26 @@
+Jag siktar på VG.
+
+1. Med git add flyttar vi fil eller flera filer från working directory till staging area. Då är de redo för nästa steg.
+Git commit säger att vi har gjort ändringar. Men vi måste göra git add först. t.ex.
+git add <filnamn> sedan git commit -m "add <filnamn>"
+
+2.Pull betyer att vi hämtar data från repository till datorn som vi jobbar på. Push skickar data till repository från datorn. Pull används inte om man jobbar själv. t.ex.
+Vi har gjort add och commit, sedan vill vi skicka det till repository med git remote add origin "adress:". Sedan kör vi git push -u origin main. git pull origin master, hämtar data från repository till datorn.
+
+3. Status visar våran branch status. Om vi t.ex. behöver commita. Log visar historia vad vi har gjort t.ex.
+git status - för att se status
+git log - för att se log
+
+4. Det är viktigt att skriva vad vi har gjort i commit-meddelanden så att vi och andra kan se det senare. Ex: changing constructor file Cars.java eller adding sumCoints file Bank.java. Det gör vi inom parantesen i $ git commit -m "meddelanden här"
+
+5. Vi kan rulla tillbaka med:
+-om vi har commitat, sedan kan vi köra:
+git log, git reset HEAD~1 (betyder ett steg tillbaka). Commando: Unstaged changes after reset: Om vi kör git log, vi ser att sista steg är borta. Men i filen som vi har ändrat innan commit, ingenting har flyttats tillbaka. Då gör vi det med git checkout, klista log kod -- <filanmn> t.ex:
+git checkout 0bf91fc7cf0f69576d0dc8d0ec26948bef14af07 -- Game.java
+Vara ändringar är tillbaka i Game.java också. Fungerar om vi inte har gjort git push online.
+Om vi har skickat online då gör vi vidare:
+git pull för att koden ska matcha online och våran datorn (hämtar kod). Sedan revert och kod för version som vi vill ha tillbaka, ex:
+git revert adec1121b745522d776552044cfe9a8ab2434aba, sedan skriver vi meddelande för ändringar.
+commando:  1 file changed, 1 deletion(-) 
+Nu han vi pusha till server igen. På servern stårn att vi har gjort revert men inte commitat git diff är bra för att se ändringar som vi har gjort i filen men inte commitat nya ändringar än.
+
